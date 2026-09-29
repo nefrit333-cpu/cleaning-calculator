@@ -198,6 +198,12 @@ function toggleMenu() {
 calculatorForm.addEventListener("input", renderCalculation);
 leadForm.addEventListener("submit", handleLeadSubmit);
 menuToggle.addEventListener("click", toggleMenu);
+menuToggle.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    toggleMenu();
+  }
+});
 siteNav.addEventListener("click", (event) => {
   if (event.target.matches("a")) {
     closeMenu();
