@@ -12,6 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231f9588'/%3E%3Cpath d='M21 34c0-9 5-15 13-15 5 0 9 2 12 6l-6 5c-2-2-4-3-6-3-4 0-6 3-6 7s3 7 7 7c3 0 5-1 7-4l6 4c-3 5-8 8-14 8-8 0-13-6-13-15Z' fill='white'/%3E%3C/svg%3E"
     >
+    <link rel="preload" as="image" href="assets/clean-living-room.jpg">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -39,11 +40,10 @@
     <main id="top">
       <section class="hero section">
         <div class="hero__content">
-          <p class="demo-note">Portfolio demo с честным расчётом</p>
+          <p class="demo-note">Учебный portfolio demo</p>
           <h1>Клининг квартир в Москве без лишних звонков</h1>
           <p class="hero__lead">
-            Выберите площадь, тип уборки и допуслуги. Сайт сразу покажет ориентир
-            цены и времени, а заявка останется в demo-режиме.
+            Соберите расчёт за минуту: площадь, тип уборки, допуслуги и ориентир времени сразу на экране.
           </p>
           <div class="hero__actions" aria-label="Быстрые действия">
             <a class="button button--primary" href="#calculator">Рассчитать уборку</a>
@@ -51,50 +51,35 @@
           </div>
         </div>
 
-        <div class="hero-card" aria-label="Визуальный пример расчёта уборки">
-          <div class="hero-card__top">
+        <figure class="hero-media">
+          <img
+            src="assets/clean-living-room.jpg"
+            width="1440"
+            height="900"
+            alt="Светлая гостиная после уборки с нейтральным уборочным набором"
+            fetchpriority="high"
+          >
+          <figcaption>Изображение demo/stock, не реальный объект компании.</figcaption>
+          <div class="hero-metrics" aria-label="Пример расчёта">
             <span>Демо-расчёт</span>
             <strong>56 м²</strong>
+            <small>отображается сразу</small>
           </div>
-          <svg class="hero-illustration" viewBox="0 0 420 300" role="img" aria-labelledby="hero-svg-title">
-            <title id="hero-svg-title">Схема аккуратной квартиры и уборочного набора</title>
-            <rect x="20" y="24" width="380" height="240" rx="28" fill="#eaf7f5"></rect>
-            <rect x="48" y="52" width="150" height="86" rx="18" fill="#ffffff"></rect>
-            <rect x="220" y="52" width="132" height="86" rx="18" fill="#d9efff"></rect>
-            <rect x="48" y="160" width="118" height="72" rx="18" fill="#dff3e9"></rect>
-            <rect x="190" y="160" width="162" height="72" rx="18" fill="#ffffff"></rect>
-            <path d="M80 95h84M250 94h64M224 196h86" stroke="#74a69c" stroke-width="10" stroke-linecap="round"></path>
-            <circle cx="126" cy="196" r="18" fill="#2f9c8f"></circle>
-            <path d="M120 196l8 8 18-24" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
-            <g transform="translate(284 188)">
-              <path d="M42 48c0 18-11 28-26 28S-10 66-10 48 16-4 16-4s26 34 26 52Z" fill="#2f9c8f"></path>
-              <path d="M16 14v44" stroke="#ffffff" stroke-width="7" stroke-linecap="round"></path>
-              <path d="M16 38c10-2 16-8 20-17" stroke="#ffffff" stroke-width="7" stroke-linecap="round"></path>
-            </g>
-            <path d="M62 250c86 20 210 20 296 0" stroke="#bddbd4" stroke-width="12" stroke-linecap="round"></path>
-          </svg>
-          <div class="quick-facts" aria-label="Ключевые факты">
-            <span>Цена и время на экране</span>
-            <span>Поддерживающая, генеральная, после ремонта</span>
-            <span>Окна, мебель, ковры, кухня и сантехника</span>
-            <span>Без звонка до первого расчёта</span>
-          </div>
-        </div>
+        </figure>
       </section>
 
       <section class="calculator-section section" id="calculator">
-        <div class="section-heading">
+        <div class="section-heading section-heading--center">
           <p>Главный интерактив</p>
           <h2>Калькулятор стоимости и времени</h2>
           <span>
-            Главный учебный сценарий проекта: пользователь меняет параметры и сразу
-            видит, как меняются стоимость, время и выбранный набор услуг.
+            Меняйте параметры и смотрите, как обновляются цена, время и выбранный набор услуг.
           </span>
         </div>
 
         <div class="calculator-layout">
           <form class="calculator-panel" id="calculator-form" aria-label="Калькулятор уборки">
-            <div class="field">
+            <div class="field field--area">
               <label for="area">Площадь квартиры, м²</label>
               <input id="area" name="area" type="number" inputmode="decimal" min="1" max="500" value="56">
               <p class="field-hint" id="area-hint">Для расчёта используется диапазон от 10 до 300 м².</p>
@@ -106,14 +91,14 @@
                 <input type="radio" name="cleaningType" value="maintenance" checked>
                 <span>
                   <strong>Поддерживающая</strong>
-                  <small>Для регулярной уборки без сильных загрязнений</small>
+                  <small>Регулярный сценарий без сильных загрязнений</small>
                 </span>
               </label>
               <label class="choice">
                 <input type="radio" name="cleaningType" value="deep">
                 <span>
                   <strong>Генеральная</strong>
-                  <small>Больше деталей, кухни, санузлов и трудных зон</small>
+                  <small>Кухня, санузлы, трудные зоны и детали</small>
                 </span>
               </label>
               <label class="choice">
@@ -127,11 +112,11 @@
 
             <fieldset class="service-grid">
               <legend>Допуслуги</legend>
-              <label><input type="checkbox" name="extras" value="windows"> Окна</label>
-              <label><input type="checkbox" name="extras" value="furniture"> Химчистка мебели</label>
-              <label><input type="checkbox" name="extras" value="carpets"> Ковры</label>
-              <label><input type="checkbox" name="extras" value="bathroom"> Сантехника</label>
-              <label><input type="checkbox" name="extras" value="kitchen"> Кухня</label>
+              <label><input type="checkbox" name="extras" value="windows"> <span>Окна</span></label>
+              <label><input type="checkbox" name="extras" value="furniture"> <span>Химчистка мебели</span></label>
+              <label><input type="checkbox" name="extras" value="carpets"> <span>Ковры</span></label>
+              <label><input type="checkbox" name="extras" value="bathroom"> <span>Сантехника</span></label>
+              <label><input type="checkbox" name="extras" value="kitchen"> <span>Кухня</span></label>
             </fieldset>
           </form>
 
@@ -177,60 +162,77 @@
 
       <section class="section compact-section" id="included">
         <div class="section-heading">
-          <p>Что входит</p>
-          <h2>Три сценария уборки</h2>
+          <h2>Что входит в уборку</h2>
+          <span>Три сценария помогают быстро выбрать нужный уровень работ.</span>
         </div>
         <div class="included-grid">
-          <article>
-            <h3>Поддерживающая</h3>
-            <p>Быстрый регулярный сценарий: пыль, полы, открытые поверхности, лёгкая кухня и санузел.</p>
+          <article class="service-card service-card--image">
+            <img
+              src="assets/clean-kitchen.jpg"
+              width="960"
+              height="640"
+              loading="lazy"
+              alt="Чистая кухня с нейтральным уборочным средством и сложенной салфеткой"
+            >
+            <div>
+              <h3>Поддерживающая</h3>
+              <p>Пыль, полы, открытые поверхности, лёгкая кухня и санузел.</p>
+            </div>
           </article>
-          <article>
+          <article class="service-card">
             <h3>Генеральная</h3>
-            <p>Больше деталей и сложных зон: фасады, сантехника, кухня, локальные загрязнения и трудные углы.</p>
+            <p>Больше деталей: фасады, сантехника, кухня, трудные углы и локальные загрязнения.</p>
           </article>
-          <article>
+          <article class="service-card">
             <h3>После ремонта</h3>
-            <p>Самый плотный вариант: строительная пыль, следы работ, длинная смена и уточнение состояния.</p>
+            <p>Плотный сценарий для строительной пыли, следов работ и длинной смены.</p>
           </article>
         </div>
       </section>
 
       <section class="section process-section" id="process">
-        <div class="section-heading">
-          <p>Как работаем</p>
-          <h2>Demo-процесс заявки</h2>
+        <div class="process-layout">
+          <div>
+            <div class="section-heading">
+              <h2>Как проходит demo-заявка</h2>
+              <span>Сценарий показывает логику сервиса, но не отправляет реальные данные.</span>
+            </div>
+            <ol class="process-list">
+              <li><span>Выбираете площадь и тип уборки.</span></li>
+              <li><span>Добавляете окна, мебель, ковры, кухню или сантехнику.</span></li>
+              <li><span>Смотрите ориентир цены, времени и выбранных параметров.</span></li>
+              <li><span>Отправляете форму и видите demo-статус на странице.</span></li>
+            </ol>
+          </div>
+          <img
+            class="process-image"
+            src="assets/cleaning-tools.jpg"
+            width="960"
+            height="640"
+            loading="lazy"
+            alt="Аккуратно собранный набор для уборки и сложенные полотенца в прихожей"
+          >
         </div>
-        <ol class="process-list">
-          <li>Выбираете площадь и тип уборки.</li>
-          <li>Добавляете нужные услуги.</li>
-          <li>Смотрите ориентир цены и времени.</li>
-          <li>Оставляете demo-заявку с выбранными параметрами.</li>
-          <li>В реальном сервисе менеджер уточнил бы детали.</li>
-        </ol>
       </section>
 
       <section class="section explanation-section">
         <div class="explanation-card">
           <h2>Почему цена ориентировочная</h2>
           <p>
-            Калькулятор помогает быстро понять порядок цены и времени, но не заменяет
-            финальное согласование. Загрязнение, окна, мебель, срочность и доступ к
-            квартире могут заметно менять объём работ. Поэтому результат показан как
-            ориентир от указанной суммы.
+            Калькулятор показывает порядок стоимости и времени. Финальная цена в реальном
+            сервисе зависела бы от загрязнения, доступа, мебели и срочности.
           </p>
         </div>
       </section>
 
       <section class="section faq-section" id="faq">
         <div class="section-heading">
-          <p>FAQ</p>
           <h2>Частые вопросы</h2>
         </div>
         <div class="faq-list">
           <details>
             <summary>Можно ли узнать точную цену сразу?</summary>
-            <p>В demo-версии показан ориентир. В реальном сервисе точная цена подтверждалась бы после уточнения деталей.</p>
+            <p>В demo-версии показан ориентир. В реальном сервисе цену подтвердили бы после уточнения деталей.</p>
           </details>
           <details>
             <summary>Что входит в генеральную уборку?</summary>
@@ -238,18 +240,14 @@
           </details>
           <details>
             <summary>Считаются ли окна отдельно?</summary>
-            <p>Да, в калькуляторе окна вынесены в допуслуги и добавляют цену и время.</p>
+            <p>Да, окна вынесены в допуслуги и добавляют цену и время.</p>
           </details>
           <details>
             <summary>Сколько длится уборка?</summary>
-            <p>Время зависит от площади, типа уборки и выбранных допуслуг. Результат округляется до половины часа.</p>
+            <p>Время зависит от площади, типа уборки и допуслуг. Результат округляется до половины часа.</p>
           </details>
           <details>
-            <summary>Можно ли заказать только допуслуги?</summary>
-            <p>Этот учебный калькулятор считает допуслуги вместе с основным типом уборки.</p>
-          </details>
-          <details>
-            <summary>Куда отправляется заявка в demo-версии?</summary>
+            <summary>Куда отправляется заявка?</summary>
             <p>Никуда. Форма показывает статус на странице и не передаёт реальные данные.</p>
           </details>
         </div>
